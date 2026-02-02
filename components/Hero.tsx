@@ -46,7 +46,7 @@ export default function Hero({ data }: HeroProps) {
   if (!data) return null;
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center p-4 sm:p-8 overflow-hidden">
+    <section ref={heroRef} className="relative py-32 md:min-h-screen flex items-center justify-center p-4 sm:p-8 overflow-hidden">
         
         <div className="relative z-10 max-w-5xl w-full text-center">
             <h1 className="hero-text-reveal text-6xl md:text-8xl font-serif font-bold tracking-tight text-slate-900 dark:text-white mb-6">

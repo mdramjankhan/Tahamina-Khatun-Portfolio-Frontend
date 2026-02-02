@@ -72,9 +72,9 @@ export default function RootLayout({
           <CustomCursor />
           <SmoothScroll>
             {/* Global Glass Layer for Light Mode */}
-            <div className="relative z-10 bg-white dark:bg-transparent backdrop-blur-[20px] transition-colors duration-500">
+            <div className="relative z-10 w-full overflow-x-hidden bg-white dark:bg-transparent backdrop-blur-[20px] transition-colors duration-500">
               <Navbar />
-              <main className="relative">{children}</main>
+              <main className="relative w-full overflow-x-hidden">{children}</main>
               <Footer />
             </div>
             <div className="fixed bottom-6 right-6 z-50">

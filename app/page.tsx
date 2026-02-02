@@ -18,7 +18,8 @@ export const metadata: Metadata = {
 
 async function getPortfolioData() {
   try {
-    const res = await axios.get('http://localhost:5000/api/portfolio');
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+    const res = await axios.get(`${apiUrl}/portfolio`);
     if (!res.data) throw new Error('No data returned');
     return res.data;
   } catch (error) {

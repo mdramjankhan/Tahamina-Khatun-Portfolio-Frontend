@@ -26,6 +26,8 @@ export default function Projects({ data }: ProjectsProps) {
   const containerRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
+    if (!containerRef.current) return;
+    
     const ctx = gsap.context(() => {
         // Ensure elements are visible if JS fails or before animation starts (optional, but good practice)
         // But with fromTo we control both states.

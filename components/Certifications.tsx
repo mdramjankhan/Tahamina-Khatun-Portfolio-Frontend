@@ -22,6 +22,8 @@ export default function Certifications({ data }: CertificationsProps) {
   const containerRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
+    if (!containerRef.current) return;
+
     const ctx = gsap.context(() => {
         gsap.from('.cert-card', {
             scrollTrigger: {

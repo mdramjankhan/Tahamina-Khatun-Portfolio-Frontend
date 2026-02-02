@@ -22,9 +22,9 @@ export default function Experience({ data }: ExperienceProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    if (!containerRef.current) return;
+
     const ctx = gsap.context(() => {
-      if(!containerRef.current) return;
-      
       // Animate the vertical line drawing down
       gsap.from('.timeline-line', {
         scrollTrigger: {

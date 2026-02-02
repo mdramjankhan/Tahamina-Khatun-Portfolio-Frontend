@@ -18,6 +18,8 @@ export default function Skills({ data }: SkillsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    if (!containerRef.current) return;
+    
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -35,13 +37,15 @@ export default function Skills({ data }: SkillsProps) {
       });
 
       // Animate pills inside after categories appear
-      tl.from('.skill-pill', {
-        scale: 0.8,
-        opacity: 0,
-        stagger: 0.05,
-        duration: 0.4,
-        ease: 'back.out(1.5)',
-      }, "-=0.5");
+      if (containerRef.current?.querySelector('.skill-pill')) {
+        tl.from('.skill-pill', {
+          scale: 0.8,
+          opacity: 0,
+          stagger: 0.05,
+          duration: 0.4,
+          ease: 'back.out(1.5)',
+        }, "-=0.5");
+      }
 
     }, containerRef);
 

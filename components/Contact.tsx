@@ -20,6 +20,8 @@ export default function Contact({ data }: ContactProps) {
   const containerRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
+    if (!containerRef.current) return;
+
     const ctx = gsap.context(() => {
         gsap.from('.contact-anim', {
             scrollTrigger: {

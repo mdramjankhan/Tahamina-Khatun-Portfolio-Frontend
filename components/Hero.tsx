@@ -21,15 +21,6 @@ export default function Hero({ data }: HeroProps) {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
 
-      // Background elements fade in
-      tl.from('.bg-blob', {
-        scale: 0.8,
-        opacity: 0,
-        duration: 2,
-        stagger: 0.3,
-        ease: 'power2.out',
-      });
-
       // Text reveal animation
       tl.from('.hero-text-reveal', {
         y: 100,

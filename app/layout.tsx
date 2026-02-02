@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { Providers } from "@/components/Providers";
 import ThemeToggle from "@/components/ThemeToggle";
 import CustomCursor from "@/components/CustomCursor";
 import BackgroundBlobs from "@/components/BackgroundBlobs";
+import LayoutWrapper from "@/components/LayoutWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -71,12 +70,9 @@ export default function RootLayout({
         <Providers>
           <CustomCursor />
           <SmoothScroll>
-            <Navbar />
-            {/* Global Glass Layer for Light Mode */}
-            <div className="relative z-10 w-full overflow-x-hidden bg-white dark:bg-transparent backdrop-blur-[20px] transition-colors duration-500">
-              <main className="relative w-full overflow-x-hidden">{children}</main>
-              <Footer />
-            </div>
+            <LayoutWrapper>
+              {children}
+            </LayoutWrapper>
             <div className="fixed bottom-6 right-6 z-50">
               <ThemeToggle />
             </div>
